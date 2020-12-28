@@ -28,4 +28,8 @@ export default function WelcomeScreen({ navigation }) {
     return <Slides data={SLIDE_DATA} onComplete={onCompleteHandler} />;
 }
 
+export const WelcomeScreenOptions = {
+    tabBarVisible: false,
+};
+
 const styles = StyleSheet.create({});
