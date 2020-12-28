@@ -29,7 +29,7 @@ export const ReviewStackNavigator = () => {
     return (
         <ReviewCreateStackNavigator.Navigator screenOptions={defaultNavOption}>
             <ReviewCreateStackNavigator.Screen
-                name="Review"
+                name="myReview"
                 component={ReviewScreen}
                 options={ReviewScreenOptions}
             />
