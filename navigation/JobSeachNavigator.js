@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import AuthScreen from '../screens/Auth.screen';
-import WelcomeScreen from '../screens/Welcome.screen';
+import WelcomeScreen, { WelcomeScreenOptions } from '../screens/Welcome.screen';
 import MapScreen from '../screens/Map.screen';
 import DeckScreen from '../screens/Deck.screen';
 import ReviewScreen, { ReviewScreenOptions } from '../screens/Review.screen';
@@ -56,7 +56,11 @@ const Tab = createBottomTabNavigator();
 export const TabNavigator = () => {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="Welcome" component={WelcomeScreen} />
+            <Tab.Screen
+                name="Welcome"
+                component={WelcomeScreen}
+                options={WelcomeScreenOptions}
+            />
             <Tab.Screen name="Auth" component={AuthScreen} />
             <Tab.Screen name="Main" component={MainTabNavigator} />
         </Tab.Navigator>
