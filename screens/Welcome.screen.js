@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Slides from '../components/Slides';
+import { useSelector, useDispatch } from 'react-redux';
+import { facebookLogin } from '../store/actions/auth.action';
 
 const SLIDE_DATA = [
     {
@@ -20,10 +22,15 @@ const SLIDE_DATA = [
     },
 ];
 
-export default function WelcomeScreen({ navigation }) {
+export default function WelcomeScreen({ navigation, route }) {
+    const dispatch = useDispatch();
     const onCompleteHandler = () => {
-        navigation.navigate('Auth');
+        dispatch(facebookLogin(false));
     };
+
+    useEffect(() => {
+        dispatch(facebookLogin(true));
+    }, []);
 
     return <Slides data={SLIDE_DATA} onComplete={onCompleteHandler} />;
 }
