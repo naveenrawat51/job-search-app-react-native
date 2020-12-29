@@ -3,9 +3,7 @@ import { FACEBOOK_LOGIN_SUCCESS, FACEBOOK_LOGIN_FAIL } from './types';
 import * as Facebook from 'expo-facebook';
 
 export const facebookLogin = (onWelcomeLoad) => async (dispatch) => {
-    console.log('facebookLogin firing');
     let token = await AsyncStorage.getItem('fb_token');
-    console.log('token: ', token);
     if (token) {
         dispatch({ type: FACEBOOK_LOGIN_SUCCESS, token });
     } else {

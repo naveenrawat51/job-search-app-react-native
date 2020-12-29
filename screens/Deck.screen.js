@@ -7,6 +7,7 @@ import MapView from 'react-native-maps';
 
 export default function DeckScreen() {
     const jobs = useSelector((state) => state.jobs.jobs);
+    const dispatch = useDispatch();
 
     const renderCard = (item) => (
         <Card key={item.jobId}>
@@ -56,8 +57,6 @@ export default function DeckScreen() {
                 data={jobs}
                 renderCard={renderCard}
                 noMoreCards={noMoreCards}
-                onSwipeLeft={() => {}}
-                onSwipeRight={() => {}}
             />
         </View>
     );

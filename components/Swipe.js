@@ -8,20 +8,17 @@ import {
     LayoutAnimation,
     UIManager,
 } from 'react-native';
+import { jobLiked } from '../store/actions/job.action';
+import { useSelector, useDispatch } from 'react-redux';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
 const SWIPE_OUT_DURATION = 250;
 
-export default function Swipe({
-    data,
-    renderCard,
-    onSwipeLeft,
-    onSwipeRight,
-    noMoreCards,
-}) {
+export default function Swipe({ data, renderCard, noMoreCards }) {
     const [index, setIndex] = useState(0);
     const position = new Animated.ValueXY();
+    const dispatch = useDispatch();
 
     const resetPosition = () => {
         Animated.spring(position, {
@@ -32,6 +29,7 @@ export default function Swipe({
 
     const onSwipeComplete = (direction) => {
         const item = data[index];
+        dispatch(jobLiked(item));
         //direction === 'right' ? onSwipeRight(item) : onSwipeLeft(item);
         position.setValue({ x: 0, y: 0 });
         setIndex(index + 1);

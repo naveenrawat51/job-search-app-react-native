@@ -6,7 +6,7 @@ import WelcomeScreen from '../screens/Welcome.screen';
 
 export default function AppNavigator() {
     const isAuth = useSelector((state) => !!state.auth.token);
-    console.log('isAuth: ', isAuth);
+
     return (
         <NavigationContainer>
             {!isAuth && <WelcomeScreen />}

@@ -1,5 +1,4 @@
-import { jobs } from '../../api_data/jobs';
-import { FETCH_JOBS } from './types';
+import { FETCH_JOBS, JOB_LIKED, JOB_LIKED_CLEAR } from './types';
 import axios from '../../api/jobs.api';
 
 export const fetchJobs = async (dispatch, region, callback) => {
@@ -8,5 +7,17 @@ export const fetchJobs = async (dispatch, region, callback) => {
     );
     dispatch({ type: FETCH_JOBS, jobs: response.data.jobDetails });
     callback();
-    console.log('naveen: ', response.data.jobDetails[0]);
+};
+
+export const jobLiked = (job) => {
+    return {
+        type: JOB_LIKED,
+        job,
+    };
+};
+
+export const clearJobLiked = () => {
+    return {
+        type: JOB_LIKED_CLEAR,
+    };
 };

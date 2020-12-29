@@ -18,7 +18,6 @@ export default function MapScreen({ navigation }) {
     });
 
     const onRegionChangeComplete = (region) => {
-        console.log(region);
         setMapRegion(region);
     };
 
